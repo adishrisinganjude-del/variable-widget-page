@@ -19,30 +19,45 @@
 
 <body>
   <div class = "column column-md">
-    <section>
+    <section id = "introduction">
       <div class = "text">
         <h1> Let's learn about variables!</h1>
         <p> A variable is like a labeled box that stores information. </p>
       </div>
     </section>
-    <section>
+    <section id = "inputSection">
       <div class = "text">
         <p>How old are you?</p>
         <label for = "age" >Age:</label>
-        <input type = "text" id = "age"/>
-        <button type = "button">Submit</button>
-        
- 
-      
+        <input type = "text" id = "ageInput"/>
+        <button type = "button" id = "submit" >Submit</button>
+      </div> 
     </section>
+    
+    <section id = "result" style = "display: none;">
+      <div class = "text">
+        <p> Age = <span id = "age"> </span></p>
+      </div>
   </div>
   <script type="module">
     import { WidgetPage } from "../js/WidgetPage.js";
-    
-
-    document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
       const widgetPage = new WidgetPage("widget-page-template", document.body);
-    });
+    
+      const ageInput = document.getElementById('ageInput');
+      const submitButton = document.getElementById('submit');
+      const inputSection = document.getElementById('inputSection');
+      const result = document.getElementById('result');
+      const ageDisplay = document.getElementById('ageDisplay');  
+
+      submitButton.addEventListener('click', function() {
+        const age = ageInput.value;
+        inputSection.style.display = 'none';
+        result.style.display = 'block';
+        ageDisplay.textContent = age;
+      });
+      
+  });
   </script>
 </body>
 
