@@ -25,7 +25,7 @@
         <p> A variable is like a labeled box that stores information. </p>
         <button class="button-semantic button-primary button-continue">
       <span class="button-text">Continue</span>
-      <svg class="button-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="button-icon" width="16" height="16"  fill="none">
         <path d="M16 8L14.59 6.59L9 12.17V0H7V12.17L1.42 6.58L0 8L8 16L16 8Z" fill="white" />
       </svg>
     </button>
@@ -60,7 +60,7 @@
       const ageDisplay = document.getElementById('ageDisplay');  
 
       submitButton.addEventListener('click', function() {
-        alert('Button clicked!'); 
+      
         const age = ageInput.value;
         inputSection.style.display = 'none';
         result.style.display = 'block';
