@@ -60,7 +60,7 @@
       <button type = "button" id = "option2" ><span id = "ageNumberQuiz"> </span></button>
     <div id = "feedback"> 
     </div>
-        <button class="button-semantic button-primary button-continue" style = "display:none;">
+        <button id = "quizContinue" class="button-semantic button-primary button-continue" style = "display:none;">
       <span class="button-text">Continue</span>
       <svg class="button-icon" width="16" height="20"  fill="none">
         </svg>
@@ -114,23 +114,25 @@
     option1.addEventListener('click', function() {
         feedback.textContent = 'Correct! "age" is the variable name!';
         feedback.style.color = 'green';
+        document.getElementById('quizContinue').style.display = 'block';
     });  
 
      option2.addEventListener('click', function() {
         feedback.textContent = 'Incorrect, That is the value, not the variable';
         feedback.style.color = 'red';
+       document.getElementById('quizContinue').style.display = 'block';
     }); 
 
     const optionA = document.getElementById('optionA');
     const optionB = document.getElementById('optionB');
-    const feedback2 = document.getElementById('feedback');
+    const feedback2 = document.getElementById('feedback2');
   optionA.addEventListener('click', function() {
-        feedback.textContent = 'Correct! After updating it, age = 100!';
-        feedback.style.color = 'green';
+        feedback2.textContent = 'Correct! After updating it, age = 100!';
+        feedback2.style.color = 'green';
     });  
-optionB.addEventListener('click', function() {
-        feedback.textContent = 'Incorrect, That was the old value. We changed it to 100.';
-        feedback.style.color = 'red';
+  optionB.addEventListener('click', function() {
+        feedback2.textContent = 'Incorrect, That was the old value. We changed it to 100.';
+        feedback2.style.color = 'red';
     }); 
     
 
