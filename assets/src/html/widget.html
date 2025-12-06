@@ -31,19 +31,19 @@
       </div>
     </section>
 
-    <section id="inputSection" style="display:none;">
+    <section id="inputSection" style="display: none;">
       <div class="text">
         <p>How old are you?</p>
-        <label for="age" >Age:</label>
+        <label for="ageInput">Age:</label>
         <input type="text" id="ageInput"/>
-        <button class="button-semantic button-primary button-continue" id="submit" >Submit</button>
+        <button class="button-semantic button-primary button-continue" id="submit">Submit</button>
       </div> 
     </section>
     
-    <section id="result" style = "display: none;">
+    <section id="result" style="display: none;">
       <div class="text">
         <p style="text-align:center;">age=<span id="ageDisplay"> </span></p>
-        <button class="button-semantic button-primary button-continue">
+        <button class="button-semantic button-primary button-continue" id="resultContinue">
       <span class="button-text">Continue</span>
       <svg class="button-icon" width="16" height="20"  fill="none">
         </svg>
@@ -51,15 +51,15 @@
       </div>
     </section>
 
-    <section id="quiz" style = "display: none;">
+    <section id="quiz" style="display: none;">
       <div class="text">
       <h2>Quick Check!</h2>
       <p>What is the name of the variable?</p>
-      <button class="button-semantic button-primary button-continue" id="option1" >age</button>
-      <button class="button-semantic button-primary button-continue" id="option2" ><span id="ageNumberQuiz"> </span></button>
+      <button class="button-semantic button-primary button-continue" id="option1">age</button>
+      <button class="button-semantic button-primary button-continue" id="option2"><span id="ageNumberQuiz"> </span></button>
     <div id="feedback"> 
     </div>
-        <button id="quizContinue" class="button-semantic button-primary button-continue" style = "display:none;">
+        <button id="quizContinue" class="button-semantic button-primary button-continue" style="display:none;">
       <span class="button-text">Continue</span>
       <svg class="button-icon" width="16" height="20"  fill="none">
         </svg>
@@ -68,17 +68,17 @@
     </section> 
 
     
-    <section id="updateVariable" style = "display: none;">
+    <section id="updateVariable" style="display: none;">
       <div class="text">
       <h2>Let's update variables!</h2>
       <p>age = 100</p>
       <p>We just updated it. </p>
       <p>What is the value of the variable "age"?</p>
-      <button class="button-semantic button-primary button-continue" id="optionA" >100</button>
-      <button class="button-semantic button-primary button-continue" id="optionB" ><span id ="ageValueQuiz"> </span></button>
+      <button class="button-semantic button-primary button-continue" id="optionA">100</button>
+      <button class="button-semantic button-primary button-continue" id="optionB"><span id="ageValueQuiz"> </span></button>
         <div id="feedback2"> 
     </div>
-        <button id="finishButton" class="button-semantic button-primary button-continue" style = "display:none;">
+        <button id="finishButton" class="button-semantic button-primary button-continue" style="display:none;">
       <span class="button-text">Continue</span>
       <svg class="button-icon" width="16" height="20"  fill="none">
         </svg>
@@ -86,7 +86,7 @@
         </div>
     </section>
 
-    <section id="Finish">
+    <section id="finish" style="display: none;">
       <div class="text">
         <h2>Great Job!</h2>
         <p>You learned how to create and update variables!</p>
@@ -100,12 +100,22 @@
     
       const ageInput = document.getElementById('ageInput');
       const submitButton = document.getElementById('submit');
+      const introduction = document.getElementById('introduction');
       const inputSection = document.getElementById('inputSection');
       const result = document.getElementById('result');
-      const ageDisplay = document.getElementById('ageDisplay');  
+      const ageDisplay = document.getElementById('ageDisplay');
+      const quiz = document.getElementById('quiz');
+      const updateVariable = document.getElementById('updateVariable');
+      const finish = document.getElementById('finish');
 
-      submitButton.addEventListener('click', function() {
       
+      document.getElementById('introContinue').addEventListener('click', function() {
+        introduction.style.display = 'none';
+        inputSection.style.display = 'block';
+      });
+
+      
+      submitButton.addEventListener('click', function() {
         const age = ageInput.value;
         inputSection.style.display = 'none';
         result.style.display = 'block';
@@ -118,35 +128,57 @@
         ageValueQuiz.textContent = age;         
       });
 
+      
+      document.getElementById('resultContinue').addEventListener('click', function() {
+        result.style.display = 'none';
+        quiz.style.display = 'block';
+      });
+
+      
       const option1 = document.getElementById('option1');
       const option2 = document.getElementById('option2');
       const feedback = document.getElementById('feedback');
     
-    option1.addEventListener('click', function() {
+      option1.addEventListener('click', function() {
         feedback.textContent = 'Correct! "age" is the variable name!';
         feedback.style.color = 'green';
         document.getElementById('quizContinue').style.display = 'block';
-    });  
+      });  
 
-     option2.addEventListener('click', function() {
+      option2.addEventListener('click', function() {
         feedback.textContent = 'Incorrect, That is the value, not the variable';
         feedback.style.color = 'red';
-       document.getElementById('quizContinue').style.display = 'block';
-    }); 
+        document.getElementById('quizContinue').style.display = 'block';
+      }); 
 
-    const optionA = document.getElementById('optionA');
-    const optionB = document.getElementById('optionB');
-    const feedback2 = document.getElementById('feedback2');
-  optionA.addEventListener('click', function() {
+      
+      document.getElementById('quizContinue').addEventListener('click', function() {
+        quiz.style.display = 'none';
+        updateVariable.style.display = 'block';
+      });
+
+      
+      const optionA = document.getElementById('optionA');
+      const optionB = document.getElementById('optionB');
+      const feedback2 = document.getElementById('feedback2');
+      
+      optionA.addEventListener('click', function() {
         feedback2.textContent = 'Correct! After updating it, age = 100!';
         feedback2.style.color = 'green';
-      document.getElementById('finishButton').style.display = 'block';
-    });  
-  optionB.addEventListener('click', function() {
-    feedback2.textContent = 'Incorrect, That was the old value. We changed it to 100.';
-    feedback2.style.color = 'red';
-    document.getElementById('finishButton').style.display = 'block';
-    }); 
+        document.getElementById('finishButton').style.display = 'block';
+      });  
+      
+      optionB.addEventListener('click', function() {
+        feedback2.textContent = 'Incorrect, That was the old value. We changed it to 100.';
+        feedback2.style.color = 'red';
+        document.getElementById('finishButton').style.display = 'block';
+      }); 
+
+      
+      document.getElementById('finishButton').addEventListener('click', function() {
+        updateVariable.style.display = 'none';
+        finish.style.display = 'block';
+      });
     
   });
   </script>
