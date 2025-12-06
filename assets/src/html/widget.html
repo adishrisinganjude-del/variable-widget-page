@@ -30,6 +30,8 @@
     </button>
       </div>
     </section>
+
+    
     <section id = "inputSection">
       <div class = "text">
         <p>How old are you?</p>
@@ -65,6 +67,8 @@
     </button>
       </div>
     </section> 
+
+    
     <section id = "updateVariable" style = "display: none;">
       <div class = "text">
       <h2>Let's update variables!</h2>
@@ -72,6 +76,8 @@
         <p>What is the value of the variable "age"?</p>
         <button type = "button" id = "optionA" >100</button>
       <button type = "button" id = "optionB" ><span id = "ageValueQuiz"> </span></button>
+        <div id = "feedback"> 
+    </div>
         </div>
     </section>
   </div>
@@ -79,7 +85,6 @@
     import { WidgetPage } from "../js/WidgetPage.js";
   document.addEventListener("DOMContentLoaded", () => {
       const widgetPage = new WidgetPage("widget-page-template", document.body);
-    
       const ageInput = document.getElementById('ageInput');
       const submitButton = document.getElementById('submit');
       const inputSection = document.getElementById('inputSection');
@@ -112,9 +117,23 @@
      option2.addEventListener('click', function() {
         feedback.textContent = 'Incorrect, That is the value, not the variable';
         feedback.style.color = 'red';
+    }); 
+
+    const optionA = document.getElementById('optionA');
+    const optionB = document.getElementById('optionB');
+    const feedback2 = document.getElementById('feedback');
+  optionA.addEventListener('click', function() {
+        feedback.textContent = 'Correct! After updating it, age = 100!';
+        feedback.style.color = 'green';
     });  
+optionB.addEventListener('click', function() {
+        feedback.textContent = 'Incorrect, That was the old value. We changed it to 100.';
+        feedback.style.color = 'red';
+    }); 
+    
+
+    
   });
   </script>
 </body>
-
 </html>
