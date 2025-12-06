@@ -41,7 +41,7 @@
     
     <section id = "result" style = "display: none;">
       <div class = "text">
-        <p> Age = <span id = "ageDisplay"> </span></p>
+        <p> age = <span id = "ageDisplay"> </span></p>
         <button class="button-semantic button-primary button-continue">
       <span class="button-text">Continue</span>
       <svg class="button-icon" width="16" height="20"  fill="none">
@@ -78,8 +78,24 @@
         inputSection.style.display = 'none';
         result.style.display = 'block';
         ageDisplay.textContent = age;
+
+        const ageNumberQuiz = document.getElementById('ageNumberQuiz');
+        ageNumberQuiz.textContent = age;         
       });
-      
+
+      const option1 = document.getElementById('option1');
+      const option2 = document.getElementById('option2');
+      const feedback = document.getElementById('feedback');
+    
+    option1.addEventListener('click', function() {
+        feedback.textContent = "Correct! "age" is the variable name!"
+        feedback.style.color = 'green';
+    });  
+
+     option2.addEventListener('click', function() {
+        feedback.textContent = "Incorrect, That is the value, not the variable"
+        feedback.style.color = 'red';
+    });  
   });
   </script>
 </body>
