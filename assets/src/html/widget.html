@@ -31,7 +31,6 @@
       </div>
     </section>
 
-    
     <section id = "inputSection">
       <div class = "text">
         <p>How old are you?</p>
@@ -79,7 +78,19 @@
       <button type = "button" id = "optionB" ><span id = "ageValueQuiz"> </span></button>
         <div id = "feedback2"> 
     </div>
+        <button id = "Finish" class="button-semantic button-primary button-continue" style = "display:none;">
+      <span class="button-text">Continue</span>
+      <svg class="button-icon" width="16" height="20"  fill="none">
+        </svg>
+    </button>
         </div>
+    </section>
+
+    <section id = "Finish">
+      <div class = "text">
+        <h2>Great Job!</h2>
+        <p>You learned how to create and update variables!</p>
+      </div>
     </section>
   </div>
   <script type="module">
@@ -129,13 +140,13 @@
   optionA.addEventListener('click', function() {
         feedback2.textContent = 'Correct! After updating it, age = 100!';
         feedback2.style.color = 'green';
+      document.getElementById('Finish').style.display = 'block';
     });  
   optionB.addEventListener('click', function() {
-        feedback2.textContent = 'Incorrect, That was the old value. We changed it to 100.';
-        feedback2.style.color = 'red';
+    feedback2.textContent = 'Incorrect, That was the old value. We changed it to 100.';
+    feedback2.style.color = 'red';
+    document.getElementById('Finish').style.display = 'block';
     }); 
-    
-
     
   });
   </script>
