@@ -58,8 +58,22 @@
       <button type = "button" id = "option2" ><span id = "ageNumberQuiz"> </span></button>
     <div id = "feedback"> 
     </div>
+        <button class="button-semantic button-primary button-continue">
+      <span class="button-text">Continue</span>
+      <svg class="button-icon" width="16" height="20"  fill="none">
+        </svg>
+    </button>
       </div>
-    </section>   
+    </section> 
+    <section id = "updateVariable" style = "display = none;">
+      <div class = "text>
+      <h5>Let's update variables!</h5>
+      <p>age = 100</p>
+        <p>What is the value of the variable "age"?</p>
+        <button type = "button" id = "optionA" >100</button>
+      <button type = "button" id = "optionB" ><span id = "ageValueQuiz"> </span></button>
+        </div>
+    </section>
   </div>
   <script type="module">
     import { WidgetPage } from "../js/WidgetPage.js";
@@ -80,7 +94,10 @@
         ageDisplay.textContent = age;
 
         const ageNumberQuiz = document.getElementById('ageNumberQuiz');
-        ageNumberQuiz.textContent = age;         
+        ageNumberQuiz.textContent = age;        
+
+        const ageValueQuiz = document.getElementById('ageValueQuiz');
+        ageValueQuiz.textContent = age;         
       });
 
       const option1 = document.getElementById('option1');
