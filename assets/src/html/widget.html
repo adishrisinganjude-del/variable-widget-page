@@ -73,8 +73,9 @@
       <div class = "text">
       <h2>Let's update variables!</h2>
       <p>age = 100</p>
-        <p>What is the value of the variable "age"?</p>
-        <button type = "button" id = "optionA" >100</button>
+      <p>We just updated it. </p>
+      <p>What is the value of the variable "age"?</p>
+      <button type = "button" id = "optionA" >100</button>
       <button type = "button" id = "optionB" ><span id = "ageValueQuiz"> </span></button>
         <div id = "feedback2"> 
     </div>
@@ -85,6 +86,7 @@
     import { WidgetPage } from "../js/WidgetPage.js";
   document.addEventListener("DOMContentLoaded", () => {
       const widgetPage = new WidgetPage("widget-page-template", document.body);
+    
       const ageInput = document.getElementById('ageInput');
       const submitButton = document.getElementById('submit');
       const inputSection = document.getElementById('inputSection');
