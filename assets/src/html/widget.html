@@ -55,8 +55,8 @@
       <div class = "text">
       <h2>Quick Check!</h2>
       <p>What is the name of the variable?</p>
-      <button type = "button" id = "option1" >Age</button>
-      <button type = "button" id = "option2" ><span id = "ageNumberQuiz"> </span></button>
+      <button type = "button" id = "option1" >age</button>
+      <button type = "button" id = "option2" ><span id= "ageNumberQuiz"> </span></button>
     <div id = "feedback"> 
     </div>
         <button id = "quizContinue" class="button-semantic button-primary button-continue" style = "display:none;">
@@ -78,7 +78,7 @@
       <button type = "button" id = "optionB" ><span id = "ageValueQuiz"> </span></button>
         <div id = "feedback2"> 
     </div>
-        <button id = "Finish" class="button-semantic button-primary button-continue" style = "display:none;">
+        <button id = "FinishButton" class="button-semantic button-primary button-continue" style = "display:none;">
       <span class="button-text">Continue</span>
       <svg class="button-icon" width="16" height="20"  fill="none">
         </svg>
@@ -140,12 +140,12 @@
   optionA.addEventListener('click', function() {
         feedback2.textContent = 'Correct! After updating it, age = 100!';
         feedback2.style.color = 'green';
-      document.getElementById('Finish').style.display = 'block';
+      document.getElementById('FinishButton').style.display = 'block';
     });  
   optionB.addEventListener('click', function() {
     feedback2.textContent = 'Incorrect, That was the old value. We changed it to 100.';
     feedback2.style.color = 'red';
-    document.getElementById('Finish').style.display = 'block';
+    document.getElementById('FinishButton').style.display = 'block';
     }); 
     
   });
